@@ -6,7 +6,7 @@
 /*   By: fduzant <fduzant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:56:16 by fduzant           #+#    #+#             */
-/*   Updated: 2023/10/26 11:17:12 by fduzant          ###   ########.fr       */
+/*   Updated: 2024/01/18 16:47:16 by fduzant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 Zombie::Zombie(std::string name) : _name(name)
 {
+	std::cout << _name << " created" << std::endl;
 	return ;
 }
 
 Zombie::~Zombie()
 {
+	std::cout << _name << " destroyed" << std::endl;
 	return ;
 }
 
