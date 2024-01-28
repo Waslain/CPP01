@@ -6,7 +6,7 @@
 /*   By: fduzant <fduzant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:38:35 by fduzant           #+#    #+#             */
-/*   Updated: 2023/10/26 14:39:42 by fduzant          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:31:34 by fduzant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int main(int argc, char **argv)
 		std::ifstream filein(filename.c_str());
 		if (filein.is_open())
 		{
+			printf("%d", s1.compare(s2));
 			std::cout << "Le fichier est ouvert, copie en cours..." << std::endl;
 			std::string line;
 			std::ofstream fileout((filename + ".replace").c_str());
@@ -47,10 +48,14 @@ int main(int argc, char **argv)
 			{
 				while (std::getline(filein, line))
 				{
-					while (line.find(s1) != std::string::npos)
+					if (s1.compare(s2) != 0 && s2.compare(s1) != 0)
 					{
-						size_t	pos = line.find(s1);
-						line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
+						while (line.find(s1) != std::string::npos)
+						{
+							size_t	pos = line.find(s1);
+							line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
+							pos += 1;
+						}
 					}
 					fileout << line << std::endl;
 				}
