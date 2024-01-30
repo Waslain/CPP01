@@ -8,7 +8,7 @@ DEPS		:= $(OBJS:.o=.d)
 # Compilator
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
-CXXFLAGS	+= -std=c++98 -MMD -g3
+CXXFLAGS	+= -std=c++98 -g3
 
 # Rules
 all		: $(NAME)

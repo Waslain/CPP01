@@ -6,7 +6,7 @@
 /*   By: fduzant <fduzant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:00:44 by fduzant           #+#    #+#             */
-/*   Updated: 2023/10/26 13:30:32 by fduzant          ###   ########.fr       */
+/*   Updated: 2024/01/25 17:26:56 by fduzant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int main()
 	jim.attack();
 	club2.setType("some other type of club");
 	jim.attack();
-
 	return 0;
 }

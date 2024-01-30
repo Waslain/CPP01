@@ -6,7 +6,7 @@
 /*   By: fduzant <fduzant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:52:23 by fduzant           #+#    #+#             */
-/*   Updated: 2023/10/26 11:38:40 by fduzant          ###   ########.fr       */
+/*   Updated: 2024/01/25 14:13:59 by fduzant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class Zombie
 {
 	public:
 		Zombie();
+		Zombie(std::string name);
 		~Zombie();
 		void	announce(void) const;
 		void	setName(std::string name);
