@@ -6,7 +6,7 @@
 /*   By: fduzant <fduzant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:38:35 by fduzant           #+#    #+#             */
-/*   Updated: 2024/01/28 17:31:34 by fduzant          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:58:18 by fduzant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,28 @@
 	sera remplacée par s2.
 */
 
+std::string replace(std::string buffer, const std::string search, const std::string replace)
+{
+	size_t	erase_l = search.length();
+	size_t	replace_l = replace.length();
+	size_t	pos = 0;
+
+	pos = buffer.find(search);
+	while (pos != std::string::npos)
+	{
+		buffer.erase(pos, erase_l);
+		buffer.insert(pos, replace);
+		pos = buffer.find(search, pos + replace_l);
+	}
+	return (buffer);
+}
+
 int main(int argc, char **argv)
 {
 	if (argc != 4)
 	{
 		std::cout << "Mauvais nombre of arguments" << std::endl;
-		std::cout << "Veuillez entrer <filename>, <strtoreplace>, <replace>" << std::endl;
+		std::cout << "Veuillez entrer <filename> <search> <replace>" << std::endl;
 		return (1);
 	}
 	else
@@ -48,23 +64,18 @@ int main(int argc, char **argv)
 			{
 				while (std::getline(filein, line))
 				{
-					if (s1.compare(s2) != 0 && s2.compare(s1) != 0)
-					{
-						while (line.find(s1) != std::string::npos)
-						{
-							size_t	pos = line.find(s1);
-							line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
-							pos += 1;
-						}
-					}
-					fileout << line << std::endl;
+					line = replace(line, s1, s2);
+					fileout << line;
 				}
 				std::cout << "Copie terminée" << std::endl;
 				fileout.close();
 				filein.close();
 			}
 			else
+			{
+				filein.close();
 				std::cout << "Le fichier de sortie n'a pas pu être ouvert" << std::endl;
+			}
 		}
 		else
 		{
